@@ -17,9 +17,23 @@ public class CalculatorSteps {
         this.calculator.enter(arg1);
     }
 
+    @When("I multiply {int} and {int}")
+    public void iMultiplyAnd(int arg0, int arg1) {
+        this.calculator.enter(arg0);
+        this.calculator.enter(arg1);
+    }
+
     @Then("the sum should be {int}")
     public void theSumShouldBe(int arg0) {
         this.calculator.add();
+        if (arg0 != this.calculator.getResult()) { // or using Junit's asserts
+            throw new IllegalStateException();
+        }
+    }
+
+    @Then("the product should be {int}")
+    public void theProductShouldBe(int arg0) {
+        this.calculator.multiply();
         if (arg0 != this.calculator.getResult()) { // or using Junit's asserts
             throw new IllegalStateException();
         }
