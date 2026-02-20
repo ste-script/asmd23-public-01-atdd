@@ -1,4 +1,5 @@
 ThisBuild / version := "0.1.0-SNAPSHOT"
+scalaVersion := "3.7.0"
 lazy val root = (project in file("."))
   .settings(
     name := "asmd23-01-atdd",
